@@ -1,3 +1,7 @@
+# 90_SECURE: folder tracked, contents ignored
+90_SECURE/*
+!90_SECURE/.gitkeep
+
 # Personal workspace settings
 .obsidian/workspace.json
 
