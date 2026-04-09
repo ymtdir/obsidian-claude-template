@@ -1,5 +1,8 @@
 {
   "newFileLocation": "current",
   "attachmentFolderPath": "99_ASSETS",
-  "promptDelete": false
+  "promptDelete": false,
+  "userIgnoreFilters": [
+    "10_DAILY/"
+  ]
 }
