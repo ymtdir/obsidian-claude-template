@@ -8,6 +8,9 @@
 90_ARCHIVE/*
 !90_ARCHIVE/.gitkeep
 
+# Local settings file
+settings.local.json
+
 # Personal workspace settings
 .obsidian/workspace.json
 
