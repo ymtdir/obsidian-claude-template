@@ -8,7 +8,7 @@
 | ------------------ | ------------------------------------------------------------------ | ------------------------ | ---------------------------------------- |
 | `00_INBOX/`        | クリップ記事・読書メモなどソース素材の投げ入れ先。未整理のまま置く | 自由（内容がわかる名前） | 不要                                     |
 | `10_WIKI/`         | 調査・学習ノート。フォルダ分けせずフラットに保存する               | トピックを端的に表す名前 | ノート間を `[[wikilink]]` で積極的に接続 |
-| `20_DAILY/`        | デイリーノート。`/daily` でAIが添削＋まとめを生成                  | `YYYY-MM-DD.md`          | 学び・気づきから `10_WIKI/` へリンク     |
+| `20_DAILY/`        | デイリーノート                                                     | `YYYY-MM-DD.md`          | 学び・気づきから `10_WIKI/` へリンク     |
 | `30_DOCUMENTS/`    | 汎用共有ドキュメント。外部出力するためリンク付け不要               | 自由                     | リンクを挿入しない                       |
 | `40_TRANSLATIONS/` | `/translate` で作成する海外記事の翻訳・要約ノート                  | 元記事タイトルの日本語訳 | リンクを挿入しない                       |
 | `50_ARTICLES/`     | `/article` で書く Zenn / Qiita 等の技術記事。過去記事も蓄積        | 記事タイトルを端的に表す | リンクを挿入しない                       |
@@ -37,7 +37,6 @@
 
 運用手順の詳細は各スキル側に寄せる。このファイルは vault の "地図" のみを定義する。
 
-- `/daily` → [.claude/skills/daily/SKILL.md](.claude/skills/daily/SKILL.md)
 - `/wiki` → [.claude/skills/wiki/SKILL.md](.claude/skills/wiki/SKILL.md)
 - `/inbox` → [.claude/skills/inbox/SKILL.md](.claude/skills/inbox/SKILL.md)
 - `/translate` → [.claude/skills/translate/SKILL.md](.claude/skills/translate/SKILL.md)
