@@ -36,7 +36,6 @@ git push origin main
 | `10_WIKI/`      | ツェッテルカステン形式の知識ノート（主役） |
 | `20_DAILY/`     | デイリーノート                             |
 | `30_DOCUMENTS/` | 共有用ドキュメント・記事執筆用             |
-| `80_SECURE/`    | 機密情報（gitignore）                      |
 | `90_ARCHIVES/`  | `/inbox` で取り込み済みのソース素材        |
 | `98_TEMPLATES/` | Obsidian テンプレート                      |
 | `99_ASSETS/`    | 画像などのアセット                         |
