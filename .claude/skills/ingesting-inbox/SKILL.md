@@ -1,5 +1,5 @@
 ---
-name: inbox
+name: ingesting-inbox
 description: 00_INBOX のソース素材を読み込み、10_WIKI にツェッテルカステン原則で複数ノートに分解する。処理後は 90_ARCHIVES に退避。
 argument-hint: '[ファイル名.md]'
 ---
@@ -31,7 +31,7 @@ argument-hint: '[ファイル名.md]'
 
 ### 3. 10_WIKI にノート作成
 
-- `.claude/skills/wiki/template.md` のフォーマットに従う（`## イメージで理解する`・`## まとめ` は省略可。`###` 見出しは `##` の下位区分として使う）
+- `.claude/skills/researching-wiki/template.md` のフォーマットに従う（`## イメージで理解する`・`## まとめ` は省略可。`###` 見出しは `##` の下位区分として使う）
 - ファイル名はトピックを端的に表す名前（半角スペース可、`[[wikilink]]` 表記と同一）。`10_WIKI/` 内で既存ノートと衝突する場合は括弧で補足（例: `Surge（ネットワークツール）.md`）。アーカイブ衝突（手順 4）は別ルール（日付サフィックス）を使う
 - プロパティ（YAML frontmatter）は使わない
 - 見出しは `##` から使う
