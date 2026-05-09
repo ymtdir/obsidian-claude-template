@@ -1,6 +1,6 @@
 ---
-name: wiki
-description: ユーザーが wiki に追加したいと言ったときに、Web検索とClaudeの知識でトピックを調査し、10_WIKI にツェッテルカステン形式の1ノートを作成する。INBOX素材の取り込みには /inbox を使う。
+name: researching-wiki
+description: ユーザーが wiki に追加したいと言ったときに、Web検索とClaudeの知識でトピックを調査し、10_WIKI にツェッテルカステン形式の1ノートを作成する。INBOX素材の取り込みには /ingesting-inbox を使う。
 argument-hint: 'トピック名'
 ---
 
