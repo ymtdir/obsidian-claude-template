@@ -10,10 +10,10 @@
 | `10_WIKI/`         | 調査・学習ノート。フォルダ分けせずフラットに保存する               | トピックを端的に表す名前 | ノート間を `[[wikilink]]` で積極的に接続 |
 | `20_DAILY/`        | デイリーノート                                                     | `YYYY-MM-DD.md`          | 学び・気づきから `10_WIKI/` へリンク     |
 | `30_DOCUMENTS/`    | 汎用共有ドキュメント。外部出力するためリンク付け不要               | 自由                     | リンクを挿入しない                       |
-| `40_TRANSLATIONS/` | `/translate` で作成する海外記事の翻訳・要約ノート                  | 元記事タイトルの日本語訳 | リンクを挿入しない                       |
-| `50_ARTICLES/`     | `/article` で書く Zenn / Qiita 等の技術記事。過去記事も蓄積        | 記事タイトルを端的に表す | リンクを挿入しない                       |
+| `40_TRANSLATIONS/` | `/translating-articles` で作成する海外記事の翻訳・要約ノート                  | 元記事タイトルの日本語訳 | リンクを挿入しない                       |
+| `50_ARTICLES/`     | `/writing-articles` で書く技術記事。過去記事も蓄積                          | 記事タイトルを端的に表す | リンクを挿入しない                       |
 | `70_PERSONAL/`     | ユーザー周辺のパーソナル情報。git 管理外                           | 用途を表す名前           | 不要                                     |
-| `90_ARCHIVES/`     | `/inbox` で取り込み済みのソース素材を退避する場所                  | 元ファイル名そのまま     | 不要                                     |
+| `90_ARCHIVES/`     | `/ingesting-inbox` で取り込み済みのソース素材を退避する場所                  | 元ファイル名そのまま     | 不要                                     |
 | `98_TEMPLATES/`    | Obsidian のテンプレートファイル置き場                              | 用途を表す名前           | 不要                                     |
 | `99_ASSETS/`       | 画像などのアセット                                                 | —                        | —                                        |
 
@@ -37,9 +37,9 @@
 
 運用手順の詳細は各スキル側に寄せる。このファイルは vault の "地図" のみを定義する。
 
-- `/wiki` → [.claude/skills/wiki/SKILL.md](.claude/skills/wiki/SKILL.md)
-- `/inbox` → [.claude/skills/inbox/SKILL.md](.claude/skills/inbox/SKILL.md)
-- `/translate` → [.claude/skills/translate/SKILL.md](.claude/skills/translate/SKILL.md)
-- `/article` → [.claude/skills/article/SKILL.md](.claude/skills/article/SKILL.md)
-- `/check` → [.claude/skills/check/SKILL.md](.claude/skills/check/SKILL.md)
-- `ask`（auto-invoke）→ [.claude/skills/ask/SKILL.md](.claude/skills/ask/SKILL.md)
+- `/researching-wiki` → [.claude/skills/researching-wiki/SKILL.md](.claude/skills/researching-wiki/SKILL.md)
+- `/ingesting-inbox` → [.claude/skills/ingesting-inbox/SKILL.md](.claude/skills/ingesting-inbox/SKILL.md)
+- `/translating-articles` → [.claude/skills/translating-articles/SKILL.md](.claude/skills/translating-articles/SKILL.md)
+- `/writing-articles` → [.claude/skills/writing-articles/SKILL.md](.claude/skills/writing-articles/SKILL.md)
+- `/relinking-wiki` → [.claude/skills/relinking-wiki/SKILL.md](.claude/skills/relinking-wiki/SKILL.md)
+- `asking-wiki`（auto-invoke）→ [.claude/skills/asking-wiki/SKILL.md](.claude/skills/asking-wiki/SKILL.md)
