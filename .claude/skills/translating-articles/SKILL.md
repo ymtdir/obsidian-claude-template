@@ -1,5 +1,5 @@
 ---
-name: translate
+name: translating-articles
 description: 00_INBOX の海外記事クリップを要約・翻訳し、40_TRANSLATIONS に1記事=1ノートで保存する。末尾に元記事URLを必ず付ける。
 argument-hint: '[ファイル名.md]'
 ---
