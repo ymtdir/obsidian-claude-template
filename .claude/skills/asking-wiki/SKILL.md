@@ -1,39 +1,39 @@
 ---
 name: asking-wiki
-description: ユーザーが何かを質問したとき、まず 10_WIKI を参照してソース引用付きで回答する。vault 内の蓄積知識を活かすための読み取り専用スキル。
+description: When the user asks something, consult 10_WIKI first and answer with source citations. A read-only skill for leveraging the knowledge accumulated in the vault.
 ---
 
-ユーザーが質問してきたら、vault に蓄積された知識を優先して回答する。
+When the user asks a question, answer by prioritizing the knowledge accumulated in the vault.
 
-## トリガー
+## Trigger
 
-- ユーザーの発話が質問文である（「〜とは？」「〜について教えて」「〜どうだっけ？」など）
-- かつ、質問が vault に蓄積されていそうなトピックに関するもの（技術・概念・過去の学びなど）
+- The user's utterance is a question (e.g. 「〜とは？」「〜について教えて」「〜どうだっけ？」)
+- And the question concerns a topic likely to be accumulated in the vault (technology, concepts, past learnings, etc.)
 
-## 発動しないケース
+## When not to trigger
 
-- **リポジトリ/vault の構造への質問**: `.claude/` 配下の設定、vault のフォルダ構造（`10_WIKI/` などの役割）、CLAUDE.md の内容など「運用メタ情報」に関するもの
-- **コード作業依頼**: 実装・修正・リファクタリングの依頼
-- **コマンド実行依頼**: `/ingesting-inbox` `/researching-wiki` 等のスキル起動依頼
-- **抑制の明示指示**: ユーザーが「wikiを見ずに」「一般論で」と明示した場合
-- **vault と明らかに無関係なトピック**: 天気・時事・雑談など（技術/学習対象ではない）
+- **Questions about the repository/vault structure**: anything about "operational meta information" such as the configuration under `.claude/`, the vault folder structure (the role of `10_WIKI/` etc.), or the contents of CLAUDE.md
+- **Coding work requests**: requests to implement, fix, or refactor
+- **Command execution requests**: requests to launch skills such as `/ingesting-inbox` or `/researching-wiki`
+- **Explicit suppression**: when the user explicitly says 「wikiを見ずに」 or 「一般論で」
+- **Topics clearly unrelated to the vault**: weather, current events, small talk, etc. (not subjects of technology/learning)
 
-## 手順
+## Steps
 
-### 1. 10_WIKI を検索
+### 1. Search 10_WIKI
 
-- 質問文からキーワードを抽出し、`10_WIKI/` を **Glob でファイル名検索 + Grep で内容検索** の両方で探す
-- 類義語・関連技術・略称でも検索する（日本語だけでなく英語の同概念も）
-- ヒット候補を 3〜5 件に絞る。優先順位は **ファイル名マッチ > Grep ヒット件数 > 質問との直接関連度**
+- Extract keywords from the question and search `10_WIKI/` using **both Glob for filename search and Grep for content search**
+- Also search with synonyms, related technologies, and abbreviations (not only Japanese but also the English equivalents of the same concept)
+- Narrow the hit candidates to 3-5. Priority order: **filename match > number of Grep hits > direct relevance to the question**
 
-### 2. 関連ノートを読む
+### 2. Read related notes
 
-- 候補ノートを Read し、質問に関連する記述を抽出する
-- ノート内の `[[wikilink]]` を辿るのは **直接リンク先（1 階層）まで** を原則とする。さらに辿るのは主ノートがスタブで情報不足の場合のみ
+- Read the candidate notes and extract the descriptions relevant to the question
+- As a rule, follow `[[wikilink]]`s within a note only **up to the direct link targets (one hop)**. Go further only when the main note is a stub and lacks information
 
-### 3. ソース引用付きで回答
+### 3. Answer with source citations
 
-- 回答本文の **文脈中に `[[ノート名]]` を自然に埋め込む**（末尾にまとめない。CLAUDE.md のノート作成ルールと同じ方針）
-- 該当記述が複数ノートに跨る場合はそれぞれ引用する
-- vault 内に情報がない場合はその旨を明示し、`00_INBOX/` に未処理素材がないか確認して `/ingesting-inbox` を提案する
-- `00_INBOX/` にも素材がない場合は「vault 蓄積なし」と明示し、一般論で回答してよいかユーザーに確認する（勝手に一般論で穴埋めしない）
+- **Embed `[[note name]]` naturally into the context** of the answer body (do not collect them at the end; same policy as the note-creation rules in CLAUDE.md)
+- When the relevant descriptions span multiple notes, cite each of them
+- If there is no information in the vault, state so explicitly, check whether there is unprocessed material in `00_INBOX/`, and suggest `/ingesting-inbox`
+- If there is no material in `00_INBOX/` either, state explicitly that there is nothing accumulated in the vault, and confirm with the user whether it is OK to answer in general terms (do not fill the gap with general knowledge on your own)
