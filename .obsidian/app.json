@@ -9,5 +9,6 @@
     "90_ARCHIVE/",
     "98_TEMPLATES/",
     "99_ASSETS/"
-  ]
+  ],
+  "showUnsupportedFiles": false
 }
