@@ -14,7 +14,6 @@ Respond in Japanese.
 | `50_ARTICLES/` | Technical articles written with `/writing-articles`. Past articles accumulate too | A name that concisely expresses the article title | Do not insert links |
 | `70_PERSONAL/` | Personal information around the user. Outside git management | A name that expresses the purpose | Not needed |
 | `90_ARCHIVES/` | Place to move source material already ingested by `/ingesting-inbox` | The original filename as is | Not needed |
-| `98_TEMPLATES/` | Storage for Obsidian template files | A name that expresses the purpose | Not needed |
 | `99_ASSETS/` | Assets such as images | — | — |
 
 ## Zettelkasten principles

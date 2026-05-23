@@ -40,7 +40,6 @@ git push origin main
 | `40_TRANSLATIONS/` | 海外記事の翻訳・要約                          |
 | `50_ARTICLES/`     | 技術記事（外部発信用）                        |
 | `90_ARCHIVES/`     | `/ingesting-inbox` で取り込み済みのソース素材 |
-| `98_TEMPLATES/`    | Obsidian テンプレート                         |
 | `99_ASSETS/`       | 画像などのアセット                            |
 
 ## 日常の運用ループ
