@@ -1,31 +1,31 @@
-# Obsidian Vault — Claude Code Rules
+# Obsidian Vault — Claude Code ルール
 
-Respond in Japanese.
+日本語で回答してください。
 
-## Vault structure
+## Vault 構造
 
-| Folder         | Role                                                                                       | Filename convention                               | Link strategy                               |
-| -------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------- |
-| `00_INBOX/`    | Drop zone for source material such as clipped articles and reading notes. Left unorganized | Free (a name that conveys the content)            | Not needed                                  |
-| `10_DAILY/`    | Daily notes                                                                                | `YYYY-MM-DD.md`                                   | Link from learnings/insights to `20_NOTES/` |
-| `20_NOTES/`    | Research/learning notes. Stored flat without subfolders                                    | A name that concisely expresses the topic         | Actively connect notes with `[[wikilink]]`  |
-| `30_ARTICLES/` | Technical articles written with `/writing-articles`. Past articles accumulate too          | A name that concisely expresses the article title | Do not insert links                         |
-| `90_ARCHIVES/` | Place to move source material already ingested by `/ingesting-inbox`                       | The original filename as is                       | Not needed                                  |
-| `99_ASSETS/`   | Assets such as images                                                                      | —                                                 | —                                           |
+| フォルダ       | 役割                                                             | ファイル名の規則             | リンク戦略                                  |
+| -------------- | ---------------------------------------------------------------- | ---------------------------- | ------------------------------------------- |
+| `00_INBOX/`    | クリップした記事や読書メモなど、ソース素材の置き場。未整理のまま | 自由(内容が伝わる名前)       | 不要                                        |
+| `10_DAILY/`    | デイリーノート                                                   | `YYYY-MM-DD.md`              | 学び・気づきから `20_NOTES/` へリンク       |
+| `20_NOTES/`    | 調査・学習ノート。サブフォルダを作らずフラットに保存             | トピックを端的に表す名前     | `[[wikilink]]` でノート同士を積極的につなぐ |
+| `30_ARTICLES/` | `/writing-articles` で執筆した技術記事。過去の記事も蓄積される   | 記事タイトルを端的に表す名前 | リンクは挿入しない                          |
+| `90_ARCHIVES/` | `/ingesting-inbox` で取り込み済みのソース素材を移動する場所      | 元のファイル名そのまま       | 不要                                        |
+| `99_ASSETS/`   | 画像などのアセット                                               | —                            | —                                           |
 
-## Note creation rules
+## ノート作成ルール
 
-- Do not use Obsidian properties (YAML frontmatter)
-- Since the filename becomes the title, a `# heading` is unnecessary in `20_NOTES/`. Start headings from `##`, and use `###` for sub-divisions under it
-- Organize notes by topic for easy reference
+- Obsidian のプロパティ(YAML フロントマター)は使わない
+- ファイル名がタイトルになるため、`20_NOTES/` では `# 見出し` は不要。見出しは `##` から始め、その下の小見出しには `###` を使う
+- 参照しやすいようトピック単位で整理する
 
-## Referencing personal information
+## 個人情報の参照
 
-Base answers to the user on personal information stored outside the main notes (the user themselves, their relationships, etc.). Whenever a potentially relevant topic comes up — in a question, a consultation, or small talk — check the corresponding note with Grep / Read. Reference it actively in the context of life advice and decision-making.
+メインノートの外に保存されている個人情報(ユーザー本人、人間関係など)を踏まえて回答する。質問・相談・雑談を問わず、関連しそうな話題が出てきたら、対応するノートを Grep / Read で確認すること。人生のアドバイスや意思決定の文脈で積極的に参照する。
 
-## Operational commands / skills
+## 運用コマンド / スキル
 
-Keep the details of operational procedures within each skill. This file defines only the "map" of the vault.
+運用手順の詳細は各スキル内に保持する。このファイルでは vault の「地図」のみを定義する。
 
 - `/ingesting-inbox` → [.claude/skills/ingesting-inbox/SKILL.md](.claude/skills/ingesting-inbox/SKILL.md)
 - `/writing-articles` → [.claude/skills/writing-articles/SKILL.md](.claude/skills/writing-articles/SKILL.md)
