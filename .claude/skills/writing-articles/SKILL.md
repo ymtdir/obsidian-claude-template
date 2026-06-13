@@ -4,62 +4,62 @@ description: Write a technical article. Fact-check by referencing 20_NOTES, foll
 argument-hint: '[topic]'
 ---
 
-Write a technical article and save it in `30_ARTICLES/`. Fact-check by referencing 20_NOTES, and write it following a view-count-oriented structure (title, what this article covers, conclusion-first).
+技術記事を執筆して `30_ARTICLES/` に保存する。ファクトチェックを行い、バズりやすい構成（タイトル・本記事で分かること・結論ファースト）で書く。
 
-Argument: `$ARGUMENTS` (article topic)
+引数: `$ARGUMENTS`（記事のトピック）
 
-## Steps
+## 手順
 
-### 1. Decide and research the topic
+### 1. トピックを決めて調査する
 
-- Identify the topic from the argument
-- Grep `20_NOTES/` for related notes (including synonyms and related technologies)
-- Read the contents of the existing WIKI notes and use them as the foundation of the article
-- Complement missing parts with WebSearch, prioritizing **primary sources** (official docs, RFCs, papers, etc.)
-- Keep Claude's knowledge as a supplement only; do not write facts based on guesses
+- 引数からトピックを特定する
+- `20_NOTES/` を Grep して関連ノートを探す（同義語・関連技術も含む）
+- 既存ノートの内容を読み込み、記事の土台として活用する
+- 不足している部分は WebSearch で補い、**一次情報**（公式ドキュメント・RFC・論文など）を優先する
+- Claude の知識はあくまで補助として使い、推測でファクトを書かない
 
-### 2. Fact-check
+### 2. ファクトチェックする
 
-- Always back up the **technical facts, version info, API specs, and numbers** claimed in the article with primary sources
-- If there is a discrepancy with an existing description in `20_NOTES/`, confirm which is correct with WebSearch before writing
-- Do not include claims that could not be verified (or mark them explicitly as "needs verification")
+- 記事で主張する**技術的ファクト・バージョン情報・API仕様・数値**は必ず一次情報で裏付ける
+- `20_NOTES/` の既存記述と食い違いがある場合は、WebSearch でどちらが正しいか確認してから書く
+- 確認できなかった主張は含めない（または「要検証」と明示する）
 
-### 3. Design the structure (to earn views)
+### 3. 構成を設計する（バズを狙う）
 
-Build the article with the following structure (keep a balance of **seriousness 7 : buzz factor 3**; overdoing it damages trust).
+以下の構成で記事を組み立てる（**真面目さ7：バズ感3**のバランスを保つ。やりすぎると信頼を損なう）。
 
-**⚠️ Not all sections are mandatory**. The below is just a general template; **select what to keep or drop** depending on the nature of the article. E.g. a 共感フック is unnatural in an article that does not deal with a known problem; for concept-explanation articles, a "gradual organization of concepts" fits better than "Step splitting"; an 早見表 is unnecessary for articles with no comparison/selection elements. **In principle the only strictly required ones are the 3: TL;DR, 結論, and まとめ**; drop the others when they do not fit the content:
+**⚠️ すべてのセクションが必須ではない**。以下はあくまで一般的なテンプレートであり、記事の性質に応じて**残す・削るを選択する**。例えば、既知の問題を扱わない記事に共感フックは不自然。概念説明記事なら「Step分割」より「概念の段階的整理」が合う。比較・選択要素のない記事に早見表は不要。**原則として必須なのは TL;DR・結論・まとめの3つのみ**。内容に合わない場合は他を削る：
 
-- **タイトル** (filename): concrete + number + benefit (e.g. 「Rust の所有権を図解で 5 分で理解する」, 「7 つのアンチパターンで学ぶ React Hooks」). Do not over-bait, and include search keywords naturally
-- **TL;DR** [Required]: present the conclusion up front within 3 lines. An essential element that lands even with skim readers
-- **対象読者**: prerequisite knowledge, the post-read goal, reading time. Make readers feel it is "addressed to me"
-- **共感フック** (「こんな経験ありませんか？」): verbalize the reader's troubles to prevent drop-off. **Strong in practical articles, but drop it for pure explanation/cheat-sheet articles**
-- **結論** [Required]: complete it in one paragraph so even people who do not read the body get the answer
-- **なぜそうなるのか**: a deep dive into the background and causes. Creates the "I see"
-- **解決方法**: split into stages with `### Step 1` `### Step 2` `### Step 3`. Give a minimal working code example per Step. **Effective for tutorial/how-to articles. For concept-explanation articles, a parallel structure like "organize the concepts → code example → pitfalls" fits better**
-- **アンチパターン** (やってはいけないこと): "sharing where you got stuck" gets shared strongly. Write it fact-based (to prevent flame wars)
-- **早見表**: a save-worthy reference element such as a comparison table or checklist. **Powerful for articles with comparison/selection; drop it if there is none**
-- **まとめ** [Required]: within 3 key points, **with numbers**, to make them memorable
-- **次のステップ + 参考文献**: **only external primary sources** such as official docs, RFCs, and papers. `20_NOTES/` is a private internal vault note, so **do not include it** in the references of a publicly published article
+- **タイトル**（ファイル名）: 具体的＋数字＋メリット（例：「Rustの所有権を図解で5分で理解する」「7つのアンチパターンで学ぶReact Hooks」）。釣りすぎず、検索キーワードを自然に含める
+- **TL;DR**【必須】: 3行以内で結論を先出し。斜め読みする読者にも刺さる必須要素
+- **対象読者**: 前提知識・読了後のゴール・読了時間。「自分向けだ」と感じさせる
+- **共感フック**（「こんな経験ありませんか？」）: 読者の悩みを言語化して離脱を防ぐ。**実践系の記事に強いが、純粋な説明・チートシート記事では削る**
+- **結論**【必須】: 本文を読まない人にも答えが伝わるよう1段落で完結させる
+- **なぜそうなるのか**: 背景・原因の深掘り。「なるほど」を生む
+- **解決方法**: `### Step 1` `### Step 2` `### Step 3` で段階分割。Stepごとに最小動作するコード例を添える。**チュートリアル・ハウツー記事に有効。概念説明記事なら「概念整理→コード例→落とし穴」の並列構成が合う**
+- **アンチパターン**（やってはいけないこと）: 「ハマったところをシェア」はシェアされやすい。ファクトベースで書く（炎上防止）
+- **早見表**: 比較表やチェックリストなど保存したくなる参照要素。**比較・選択要素のある記事に強力。なければ削る**
+- **まとめ**【必須】: 3つのポイント以内・**数字付き**で記憶に残す
+- **次のステップ＋参考文献**: 公式ドキュメント・RFC・論文などの**外部一次情報のみ**。`20_NOTES/` はプライベートな内部 vault のノートなので、外部公開記事の参考文献には**含めない**
 
-### 4. Write following template.md
+### 4. template.md に従って執筆する
 
-- Read `.claude/skills/writing-articles/assets/template.md` and write the body in that structure
-- Write within the range of general Markdown (do not depend on the posting destination's platform-specific notation)
-- Do not forget the language specifier on code blocks (` ```rust `, ` ```ts `, etc.)
-- Place image references in `99_ASSETS/` and reference them with relative paths
+- `.claude/skills/writing-articles/assets/template.md` を読み込み、その構成で本文を書く
+- 一般的な Markdown の範囲で書く（投稿先のプラットフォーム固有記法に依存しない）
+- コードブロックには言語指定を忘れない（` ```rust `、` ```ts ` など）
+- 画像は `99_ASSETS/` に配置し、相対パスで参照する
 
-### 5. Save in 30_ARTICLES
+### 5. 30_ARTICLES に保存する
 
-- The filename is a name that concisely expresses the article title (Japanese OK; identical to the `[[wikilink]]` notation)
-- **Pre-check `30_ARTICLES/` with Glob before saving** to detect a collision with a file of the same name
-- On collision, **Read the existing file to grasp its angle** and write the new article from an angle that avoids duplication
-- Differentiate the filename **with a parenthetical note** (e.g. `Rust所有権（入門）.md`, `GraphQLスキーマ設計（N+1問題編）.md`)
-- **Do not write frontmatter** (it is assumed to be added later via the posting destination's CLI/Web UI; this skill handles only the article body)
-- Start headings from `##` and do not write a `# title` (the filename serves as the title)
-- Do not add `[[wikilink]]` (links would break at the external publication destination)
+- ファイル名は記事タイトルを端的に表す名前（日本語可）とする
+- 保存前に **Glob で `30_ARTICLES/` を確認**し、同名ファイルとの衝突を検出する
+- 衝突した場合は**既存ファイルを Read して切り口を把握**し、重複しない切り口で新記事を書く
+- ファイル名は**括弧書きで差別化する**（例: `Rust所有権（入門）.md`、`GraphQLスキーマ設計（N+1問題編）.md`）
+- **フロントマターは書かない**（投稿先の CLI/Web UI で後から追加する想定。このスキルは記事本文のみを担当する）
+- 見出しは `##` から始め、`# タイトル` は書かない（ファイル名がタイトルになる）
+- `[[wikilink]]` は追加しない（外部公開先でリンクが壊れるため）
 
-### 6. Report
+### 6. レポートする
 
-- Present the file path, title, and overview of the created article
-- State explicitly which `20_NOTES/` notes were referenced for the fact-check
+- 作成した記事のファイルパス・タイトル・概要を提示する
+- ファクトチェックで参照した `20_NOTES/` のノートを明示する

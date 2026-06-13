@@ -1,50 +1,48 @@
 ---
 name: ingesting-inbox
-description: Read source material in 00_INBOX and break it into multiple notes in 20_NOTES following Zettelkasten principles. After processing, move the source to 90_ARCHIVES.
+description: Read source material in 00_INBOX and break it into multiple notes in 20_NOTES. After processing, move the source to 90_ARCHIVES.
 argument-hint: '[filename.md]'
 ---
 
-Take clipped articles, reading notes, and other source material dropped into `00_INBOX/`, break each source into multiple topics (1 source = multiple topics), and ingest them into `20_NOTES/`.
+`00_INBOX/` に投入されたクリップ記事・読書メモなどのソース素材を、複数のトピックに分解して `20_NOTES/` に取り込む。
 
-## Steps
+## 手順
 
-### 1. Identify the target file(s)
+### 1. 対象ファイルを特定する
 
-- If a filename is given as an argument, target only `00_INBOX/<filename>`
-- If no argument is given, list all `.md` files directly under `00_INBOX/` and process them one by one in order
-- If there is no target, tell the user the INBOX is empty and finish
+- 引数でファイル名が指定されている場合は `00_INBOX/<filename>` のみを対象にする
+- 引数がない場合は `00_INBOX/` 直下の `.md` ファイルを全件列挙し、順番に処理する
+- 対象がなければ「INBOXは空です」とユーザーに伝えて終了する
 
-### 2. Read and decompose the source
+### 2. ソースを読み込んで分解する
 
-- Read the source and identify topics for each major concept, person, technology, and example
-- If the source is in English (or any language other than Japanese), translate both the note names and the body into Japanese when ingesting. Proper nouns, technical terms, and code identifiers may be kept in the original language
-- Following the principle of 1 note = 1 idea, split into a granularity that can be read independently. **Granularity guideline**: 1 note = the unit that answers "one question". Paired concepts (e.g. shared reference vs. mutable reference) are in principle merged into 1 note; independent concepts go into separate notes
-- For each candidate, Grep `20_NOTES/` and record it as a "merge candidate" when the **title matches exactly** or **the major concepts of the body largely overlap with an existing note** (if there are none, treat all as new)
-- When merging, as a rule dissolve the content into an existing section; add a `## 追記` section only when it does not fit the existing structure
-- Present the following to the user in **a single approval prompt** and obtain approval:
-  - The decomposition plan (the list of planned note names)
-  - The treatment of each note ("create new" or "merge into existing `X.md` as an addition")
-  - A body summary is optional (it may be omitted when there are many notes)
-- When processing multiple files, run a **per-file loop of approval → note creation → archive** (not all at once)
-- If approval is denied, receive correction instructions, rebuild the decomposition plan, and present it again (re-approval loop)
-- In non-interactive environments (such as subagent execution), skip the approval step, state the decisions clearly in the report, and proceed
+- ソースを読んで、主要な概念・人物・技術・事例ごとにトピックを特定する
+- ソースが英語（または日本語以外）の場合、取り込み時にノート名と本文を日本語に翻訳する。固有名詞・技術用語・コード識別子は原語のまま残してよい
+- 「1ノート＝1トピック」の粒度で分割する。**粒度の目安**: 1ノート＝「1つの問い」に答える単位。対になる概念（例：共有参照 vs 可変参照）は原則1ノートにまとめ、独立した概念は別ノートにする
+- 各候補について `20_NOTES/` を Grep し、**タイトルが完全一致**するか**本文の主要概念が既存ノートと大きく重なる**場合は「マージ候補」として記録する（なければすべて新規）
+- マージする場合は原則として既存セクションに内容を溶け込ませる。既存構造に収まらない場合のみ `## 追記` セクションを追加する
+- 以下を**1回の確認プロンプトでまとめて**ユーザーに提示し、承認を得る：
+  - 分解計画（作成予定のノート名一覧）
+  - 各ノートの扱い（「新規作成」または「既存 `X.md` に追記してマージ」）
+  - 本文サマリーは任意（ノート数が多い場合は省略可）
+- 複数ファイルを処理する場合は**ファイルごとに「承認→ノート作成→アーカイブ」のループ**を回す（まとめて処理しない）
+- 承認が拒否された場合は修正指示を受け取り、分解計画を作り直して再提示する（再承認ループ）
+- 非インタラクティブ環境（サブエージェント実行など）では承認ステップをスキップし、決定内容をレポートに明記して進める
 
-### 3. Create notes in 20_NOTES
+### 3. 20_NOTES にノートを作成する
 
-- Follow the format of `.claude/skills/researching-wiki/assets/template.md` (`## イメージで理解する` and `## まとめ` may be omitted; use `###` headings as a sub-division under `##`)
-- The filename is a name that concisely expresses the topic (half-width spaces allowed; identical to the `[[wikilink]]` notation). When it collides with an existing note in `20_NOTES/`, add a parenthetical note (e.g. `Surge（ネットワークツール）.md`). Archive collisions (step 4) use a different rule (date suffix)
-- Do not use properties (YAML frontmatter)
-- Start headings from `##`
-- Embed `[[wikilink]]` naturally into the context of the body (do not make an end-of-note list)
-- Grep within `20_NOTES/`, and if there are related notes, create bidirectional links. **When multiple notes are created in the same batch, also link those notes to each other**
+- ファイル名はトピックを端的に表す名前（半角スペース可）とする。`20_NOTES/` に同名ノートが存在する場合は括弧書きで補足する（例: `Surge（ネットワークツール）.md`）。アーカイブの衝突（手順4）は別のルール（日付サフィックス）で対処する
+- プロパティ（YAMLフロントマター）は使わない
+- 見出しは `##` から始める
+- ファイル名がタイトルになるため `# 見出し` は不要
 
-### 4. Archive the source file
+### 4. ソースファイルをアーカイブする
 
-- When ingestion is complete, move the original `00_INBOX/<file>` to `90_ARCHIVES/`
-- **Keep the original filename** (the archive keeps the original name, independently of the note being made Japanese at creation time even for English articles)
-- If a file with the same name exists in `90_ARCHIVES/`, add a date suffix `-YYYY-MM-DD` **before the extension** (e.g. `article.md` → `article-2026-04-22.md`)
-- If it still collides even with the date suffix, add a **sequential number `-N`** (e.g. `article-2026-04-22-2.md`, `-3`, ...)
+- 取り込みが完了したら `00_INBOX/<file>` を `90_ARCHIVES/` に移動する
+- **ファイル名はそのまま維持する**（英語記事でも取り込み時に日本語化したノートとは独立してオリジナル名を保持する）
+- `90_ARCHIVES/` に同名ファイルが存在する場合は拡張子の**前**に日付サフィックス `-YYYY-MM-DD` を追加する（例: `article.md` → `article-2026-04-22.md`）
+- 日付サフィックスを付けても衝突する場合は**連番 `-N`** を追加する（例: `article-2026-04-22-2.md`、`-3`、…）
 
-### 5. Report
+### 5. レポートする
 
-- Present the list of newly created notes, the list of merged notes, and the list of archived source files
+- 新規作成したノートの一覧・マージしたノートの一覧・アーカイブしたソースファイルの一覧を提示する
