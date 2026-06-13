@@ -1,10 +1,10 @@
 ---
 name: researching-wiki
-description: When the user says they want to add something to the wiki, research the topic with web search and Claude's knowledge, and create one Zettelkasten-style note in 10_WIKI. Use /ingesting-inbox for ingesting INBOX material.
+description: When the user says they want to add something to the wiki, research the topic with web search and Claude's knowledge, and create one Zettelkasten-style note in 20_NOTES. Use /ingesting-inbox for ingesting INBOX material.
 argument-hint: 'topic name'
 ---
 
-Research a topic with web search and Claude's knowledge, and create one Zettelkasten-style note in 10_WIKI.
+Research a topic with web search and Claude's knowledge, and create one Zettelkasten-style note in 20_NOTES.
 
 Argument: $ARGUMENTS (topic name)
 
@@ -13,7 +13,7 @@ Argument: $ARGUMENTS (topic name)
 ### 1. Research and organize
 
 - Supplement and organize the topic
-  1. First, Grep within `10_WIKI/` for related keywords to grasp the existing knowledge
+  1. First, Grep within `20_NOTES/` for related keywords to grasp the existing knowledge
      - Also search for synonyms of the topic, related technologies, and alternative services
   2. If something is missing, research with WebSearch
   3. Complement definitions and background with Claude's knowledge
@@ -29,7 +29,7 @@ Argument: $ARGUMENTS (topic name)
   - **Do not proceed to step 2 (note creation) until user confirmation is obtained**
 - Following the principle of 1 note = 1 idea, if multiple topics are mixed in, propose splitting them
 
-### 2. Create a note in 10_WIKI
+### 2. Create a note in 20_NOTES
 
 - Use a filename that concisely expresses the topic (e.g. `Rustの所有権.md`)
   - **If the name is likely to collide with an existing note, use a distinguishable name**

@@ -7,8 +7,8 @@ Respond in Japanese.
 | Folder             | Role                                                                                       | Filename convention                               | Link strategy                              |
 | ------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------ |
 | `00_INBOX/`        | Drop zone for source material such as clipped articles and reading notes. Left unorganized | Free (a name that conveys the content)            | Not needed                                 |
-| `10_WIKI/`         | Research/learning notes. Stored flat without subfolders                                    | A name that concisely expresses the topic         | Actively connect notes with `[[wikilink]]` |
-| `20_DAILY/`        | Daily notes                                                                                | `YYYY-MM-DD.md`                                   | Link from learnings/insights to `10_WIKI/` |
+| `10_DAILY/`        | Daily notes                                                                                | `YYYY-MM-DD.md`                                   | Link from learnings/insights to `20_NOTES/` |
+| `20_NOTES/`        | Research/learning notes. Stored flat without subfolders                                    | A name that concisely expresses the topic         | Actively connect notes with `[[wikilink]]` |
 | `30_DOCUMENTS/`    | General-purpose shared documents. No linking needed since they are output externally       | Free                                              | Do not insert links                        |
 | `40_TRANSLATIONS/` | (No longer in use)                                                                         | —                                                 | —                                          |
 | `50_ARTICLES/`     | Technical articles written with `/writing-articles`. Past articles accumulate too          | A name that concisely expresses the article title | Do not insert links                        |
@@ -17,19 +17,19 @@ Respond in Japanese.
 
 ## Zettelkasten principles
 
-- **1 note = 1 idea**: each note in `10_WIKI/` covers a single topic
+- **1 note = 1 idea**: each note in `20_NOTES/` covers a single topic
 - **Connect with links**: connect notes with `[[wikilink]]`. Links — not tags or folders — create the structure
 - **Autonomy**: write each note so it makes sense when read on its own
 
 ## Note creation rules
 
 - Do not use Obsidian properties (YAML frontmatter)
-- Since the filename becomes the title, a `# heading` is unnecessary in `10_WIKI/`. Start headings from `##`, and use `###` for sub-divisions under it
+- Since the filename becomes the title, a `# heading` is unnecessary in `20_NOTES/`. Start headings from `##`, and use `###` for sub-divisions under it
 - Embed `[[wikilink]]`s to related notes naturally into the context of the body (do not collect them in an end-of-note list)
 
 ## Referencing personal information
 
-Base answers to the user on personal information stored outside the main wiki (the user themselves, their relationships, etc.). Whenever a potentially relevant topic comes up — in a question, a consultation, or small talk — check the corresponding note with Grep / Read. Reference it actively in the context of life advice and decision-making.
+Base answers to the user on personal information stored outside the main notes (the user themselves, their relationships, etc.). Whenever a potentially relevant topic comes up — in a question, a consultation, or small talk — check the corresponding note with Grep / Read. Reference it actively in the context of life advice and decision-making.
 
 ## Operational commands / skills
 

@@ -1,16 +1,16 @@
 ---
 name: relinking-wiki
-description: Inspect and repair the links in 10_WIKI. Periodically detect and re-add missing references from old notes to new notes, and broken links. Orphan notes and contradictory descriptions are detected as a secondary function.
+description: Inspect and repair the links in 20_NOTES. Periodically detect and re-add missing references from old notes to new notes, and broken links. Orphan notes and contradictory descriptions are detected as a secondary function.
 ---
 
-Inspect the links between notes in `10_WIKI/` and repair breaks and omissions. When a note for a concept that did not yet exist at the time an old note was written is added later, the reference often stays unlinked. This skill periodically detects and re-adds them.
+Inspect the links between notes in `20_NOTES/` and repair breaks and omissions. When a note for a concept that did not yet exist at the time an old note was written is added later, the reference often stays unlinked. This skill periodically detects and re-adds them.
 
 ## Main functions
 
 ### 1. Fix broken links
 
-- List `10_WIKI/*.md` with Glob
-- Extract `[[X]]`-form links from each note and list the ones where `X.md` does not exist in `10_WIKI/`
+- List `20_NOTES/*.md` with Glob
+- Extract `[[X]]`-form links from each note and list the ones where `X.md` does not exist in `20_NOTES/`
 - If there is a similar filename, present it as a replacement candidate (**partial match or edit distance within 2; narrow the candidates to 1-3**)
 
 ### 2. Add missing links
@@ -21,7 +21,7 @@ Call the `zettelkasten-linker` agent **via the Agent tool with `subagent_type=ze
 
 ### 3. Detect orphan notes
 
-- **Judge only by the mutual links within `10_WIKI/`** (backlinks from other vault folders are out of scope)
+- **Judge only by the mutual links within `20_NOTES/`** (backlinks from other vault folders are out of scope)
 - List notes that are not linked from anywhere
 
 ### 4. Detect contradictory descriptions

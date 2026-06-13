@@ -1,10 +1,10 @@
 ---
 name: writing-articles
-description: Write a technical article. Fact-check by referencing 10_WIKI, follow a view-count-oriented structure template, and save it in 50_ARTICLES.
+description: Write a technical article. Fact-check by referencing 20_NOTES, follow a view-count-oriented structure template, and save it in 50_ARTICLES.
 argument-hint: '[topic]'
 ---
 
-Write a technical article and save it in `50_ARTICLES/`. Fact-check by referencing 10_WIKI, and write it following a view-count-oriented structure (title, what this article covers, conclusion-first).
+Write a technical article and save it in `50_ARTICLES/`. Fact-check by referencing 20_NOTES, and write it following a view-count-oriented structure (title, what this article covers, conclusion-first).
 
 Argument: `$ARGUMENTS` (article topic)
 
@@ -13,7 +13,7 @@ Argument: `$ARGUMENTS` (article topic)
 ### 1. Decide and research the topic
 
 - Identify the topic from the argument
-- Grep `10_WIKI/` for related notes (including synonyms and related technologies)
+- Grep `20_NOTES/` for related notes (including synonyms and related technologies)
 - Read the contents of the existing WIKI notes and use them as the foundation of the article
 - Complement missing parts with WebSearch, prioritizing **primary sources** (official docs, RFCs, papers, etc.)
 - Keep Claude's knowledge as a supplement only; do not write facts based on guesses
@@ -21,7 +21,7 @@ Argument: `$ARGUMENTS` (article topic)
 ### 2. Fact-check
 
 - Always back up the **technical facts, version info, API specs, and numbers** claimed in the article with primary sources
-- If there is a discrepancy with an existing description in `10_WIKI/`, confirm which is correct with WebSearch before writing
+- If there is a discrepancy with an existing description in `20_NOTES/`, confirm which is correct with WebSearch before writing
 - Do not include claims that could not be verified (or mark them explicitly as "needs verification")
 
 ### 3. Design the structure (to earn views)
@@ -40,7 +40,7 @@ Build the article with the following structure (keep a balance of **seriousness 
 - **アンチパターン** (やってはいけないこと): "sharing where you got stuck" gets shared strongly. Write it fact-based (to prevent flame wars)
 - **早見表**: a save-worthy reference element such as a comparison table or checklist. **Powerful for articles with comparison/selection; drop it if there is none**
 - **まとめ** [Required]: within 3 key points, **with numbers**, to make them memorable
-- **次のステップ + 参考文献**: **only external primary sources** such as official docs, RFCs, and papers. `10_WIKI/` is a private internal vault note, so **do not include it** in the references of a publicly published article
+- **次のステップ + 参考文献**: **only external primary sources** such as official docs, RFCs, and papers. `20_NOTES/` is a private internal vault note, so **do not include it** in the references of a publicly published article
 
 ### 4. Write following template.md
 
@@ -62,4 +62,4 @@ Build the article with the following structure (keep a balance of **seriousness 
 ### 6. Report
 
 - Present the file path, title, and overview of the created article
-- State explicitly which `10_WIKI/` notes were referenced for the fact-check
+- State explicitly which `20_NOTES/` notes were referenced for the fact-check

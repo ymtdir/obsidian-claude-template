@@ -1,6 +1,6 @@
 ---
 name: asking-wiki
-description: When the user asks something, consult 10_WIKI first and answer with source citations. A read-only skill for leveraging the knowledge accumulated in the vault.
+description: When the user asks something, consult 20_NOTES first and answer with source citations. A read-only skill for leveraging the knowledge accumulated in the vault.
 ---
 
 When the user asks a question, answer by prioritizing the knowledge accumulated in the vault.
@@ -12,7 +12,7 @@ When the user asks a question, answer by prioritizing the knowledge accumulated 
 
 ## When not to trigger
 
-- **Questions about the repository/vault structure**: anything about "operational meta information" such as the configuration under `.claude/`, the vault folder structure (the role of `10_WIKI/` etc.), or the contents of CLAUDE.md
+- **Questions about the repository/vault structure**: anything about "operational meta information" such as the configuration under `.claude/`, the vault folder structure (the role of `20_NOTES/` etc.), or the contents of CLAUDE.md
 - **Coding work requests**: requests to implement, fix, or refactor
 - **Command execution requests**: requests to launch skills such as `/ingesting-inbox` or `/researching-wiki`
 - **Explicit suppression**: when the user explicitly says 「wikiを見ずに」 or 「一般論で」
@@ -20,9 +20,9 @@ When the user asks a question, answer by prioritizing the knowledge accumulated 
 
 ## Steps
 
-### 1. Search 10_WIKI
+### 1. Search 20_NOTES
 
-- Extract keywords from the question and search `10_WIKI/` using **both Glob for filename search and Grep for content search**
+- Extract keywords from the question and search `20_NOTES/` using **both Glob for filename search and Grep for content search**
 - Also search with synonyms, related technologies, and abbreviations (not only Japanese but also the English equivalents of the same concept)
 - Narrow the hit candidates to 3-5. Priority order: **filename match > number of Grep hits > direct relevance to the question**
 
