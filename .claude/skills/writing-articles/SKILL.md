@@ -1,10 +1,10 @@
 ---
 name: writing-articles
-description: Write a technical article. Fact-check by referencing 20_NOTES, follow a view-count-oriented structure template, and save it in 50_ARTICLES.
+description: Write a technical article. Fact-check by referencing 20_NOTES, follow a view-count-oriented structure template, and save it in 30_ARTICLES.
 argument-hint: '[topic]'
 ---
 
-Write a technical article and save it in `50_ARTICLES/`. Fact-check by referencing 20_NOTES, and write it following a view-count-oriented structure (title, what this article covers, conclusion-first).
+Write a technical article and save it in `30_ARTICLES/`. Fact-check by referencing 20_NOTES, and write it following a view-count-oriented structure (title, what this article covers, conclusion-first).
 
 Argument: `$ARGUMENTS` (article topic)
 
@@ -49,10 +49,10 @@ Build the article with the following structure (keep a balance of **seriousness 
 - Do not forget the language specifier on code blocks (` ```rust `, ` ```ts `, etc.)
 - Place image references in `99_ASSETS/` and reference them with relative paths
 
-### 5. Save in 50_ARTICLES
+### 5. Save in 30_ARTICLES
 
 - The filename is a name that concisely expresses the article title (Japanese OK; identical to the `[[wikilink]]` notation)
-- **Pre-check `50_ARTICLES/` with Glob before saving** to detect a collision with a file of the same name
+- **Pre-check `30_ARTICLES/` with Glob before saving** to detect a collision with a file of the same name
 - On collision, **Read the existing file to grasp its angle** and write the new article from an angle that avoids duplication
 - Differentiate the filename **with a parenthetical note** (e.g. `Rust所有権（入門）.md`, `GraphQLスキーマ設計（N+1問題編）.md`)
 - **Do not write frontmatter** (it is assumed to be added later via the posting destination's CLI/Web UI; this skill handles only the article body)
