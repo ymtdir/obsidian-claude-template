@@ -4,17 +4,16 @@ Respond in Japanese.
 
 ## Vault structure
 
-| Folder | Role | Filename convention | Link strategy |
-| --- | --- | --- | --- |
-| `00_INBOX/` | Drop zone for source material such as clipped articles and reading notes. Left unorganized | Free (a name that conveys the content) | Not needed |
-| `10_WIKI/` | Research/learning notes. Stored flat without subfolders | A name that concisely expresses the topic | Actively connect notes with `[[wikilink]]` |
-| `20_DAILY/` | Daily notes | `YYYY-MM-DD.md` | Link from learnings/insights to `10_WIKI/` |
-| `30_DOCUMENTS/` | General-purpose shared documents. No linking needed since they are output externally | Free | Do not insert links |
-| `40_TRANSLATIONS/` | Translation/summary notes of foreign articles created by `/translating-articles` | Japanese translation of the original article title | Do not insert links |
-| `50_ARTICLES/` | Technical articles written with `/writing-articles`. Past articles accumulate too | A name that concisely expresses the article title | Do not insert links |
-| `70_PERSONAL/` | Personal information around the user. Outside git management | A name that expresses the purpose | Not needed |
-| `90_ARCHIVES/` | Place to move source material already ingested by `/ingesting-inbox` | The original filename as is | Not needed |
-| `99_ASSETS/` | Assets such as images | — | — |
+| Folder             | Role                                                                                       | Filename convention                               | Link strategy                              |
+| ------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------ |
+| `00_INBOX/`        | Drop zone for source material such as clipped articles and reading notes. Left unorganized | Free (a name that conveys the content)            | Not needed                                 |
+| `10_WIKI/`         | Research/learning notes. Stored flat without subfolders                                    | A name that concisely expresses the topic         | Actively connect notes with `[[wikilink]]` |
+| `20_DAILY/`        | Daily notes                                                                                | `YYYY-MM-DD.md`                                   | Link from learnings/insights to `10_WIKI/` |
+| `30_DOCUMENTS/`    | General-purpose shared documents. No linking needed since they are output externally       | Free                                              | Do not insert links                        |
+| `40_TRANSLATIONS/` | (No longer in use)                                                                         | —                                                 | —                                          |
+| `50_ARTICLES/`     | Technical articles written with `/writing-articles`. Past articles accumulate too          | A name that concisely expresses the article title | Do not insert links                        |
+| `90_ARCHIVES/`     | Place to move source material already ingested by `/ingesting-inbox`                       | The original filename as is                       | Not needed                                 |
+| `99_ASSETS/`       | Assets such as images                                                                      | —                                                 | —                                          |
 
 ## Zettelkasten principles
 
@@ -30,7 +29,7 @@ Respond in Japanese.
 
 ## Referencing personal information
 
-Base answers to the user on the personal information under `70_PERSONAL/` (the user themselves, their relationships, etc.). Whenever a potentially relevant topic comes up — in a question, a consultation, or small talk — check the corresponding note with Grep / Read. Reference it actively in the context of life advice and decision-making. Since `70_PERSONAL/` is outside git management, do not mix its contents into commits or public output.
+Base answers to the user on personal information stored outside the main wiki (the user themselves, their relationships, etc.). Whenever a potentially relevant topic comes up — in a question, a consultation, or small talk — check the corresponding note with Grep / Read. Reference it actively in the context of life advice and decision-making.
 
 ## Operational commands / skills
 
@@ -38,7 +37,6 @@ Keep the details of operational procedures within each skill. This file defines 
 
 - `/researching-wiki` → [.claude/skills/researching-wiki/SKILL.md](.claude/skills/researching-wiki/SKILL.md)
 - `/ingesting-inbox` → [.claude/skills/ingesting-inbox/SKILL.md](.claude/skills/ingesting-inbox/SKILL.md)
-- `/translating-articles` → [.claude/skills/translating-articles/SKILL.md](.claude/skills/translating-articles/SKILL.md)
 - `/writing-articles` → [.claude/skills/writing-articles/SKILL.md](.claude/skills/writing-articles/SKILL.md)
 - `/relinking-wiki` → [.claude/skills/relinking-wiki/SKILL.md](.claude/skills/relinking-wiki/SKILL.md)
 - `asking-wiki` (auto-invoke) → [.claude/skills/asking-wiki/SKILL.md](.claude/skills/asking-wiki/SKILL.md)

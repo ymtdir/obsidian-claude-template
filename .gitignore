@@ -1,8 +1,6 @@
 # Ignore all files in the INBOX, ARCHIVE, and PERSONAL folders
 00_INBOX/*
 !00_INBOX/.gitkeep
-70_PERSONAL/*
-!70_PERSONAL/.gitkeep
 90_ARCHIVE/*
 !90_ARCHIVE/.gitkeep
 
