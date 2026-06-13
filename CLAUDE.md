@@ -13,17 +13,11 @@ Respond in Japanese.
 | `90_ARCHIVES/`     | Place to move source material already ingested by `/ingesting-inbox`                       | The original filename as is                       | Not needed                                 |
 | `99_ASSETS/`       | Assets such as images                                                                      | —                                                 | —                                          |
 
-## Zettelkasten principles
-
-- **1 note = 1 idea**: each note in `20_NOTES/` covers a single topic
-- **Connect with links**: connect notes with `[[wikilink]]`. Links — not tags or folders — create the structure
-- **Autonomy**: write each note so it makes sense when read on its own
-
 ## Note creation rules
 
 - Do not use Obsidian properties (YAML frontmatter)
 - Since the filename becomes the title, a `# heading` is unnecessary in `20_NOTES/`. Start headings from `##`, and use `###` for sub-divisions under it
-- Embed `[[wikilink]]`s to related notes naturally into the context of the body (do not collect them in an end-of-note list)
+- Organize notes by topic for easy reference
 
 ## Referencing personal information
 
@@ -33,8 +27,5 @@ Base answers to the user on personal information stored outside the main notes (
 
 Keep the details of operational procedures within each skill. This file defines only the "map" of the vault.
 
-- `/researching-wiki` → [.claude/skills/researching-wiki/SKILL.md](.claude/skills/researching-wiki/SKILL.md)
 - `/ingesting-inbox` → [.claude/skills/ingesting-inbox/SKILL.md](.claude/skills/ingesting-inbox/SKILL.md)
 - `/writing-articles` → [.claude/skills/writing-articles/SKILL.md](.claude/skills/writing-articles/SKILL.md)
-- `/relinking-wiki` → [.claude/skills/relinking-wiki/SKILL.md](.claude/skills/relinking-wiki/SKILL.md)
-- `asking-wiki` (auto-invoke) → [.claude/skills/asking-wiki/SKILL.md](.claude/skills/asking-wiki/SKILL.md)

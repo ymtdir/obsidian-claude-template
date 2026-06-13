@@ -1,15 +1,12 @@
 # Obsidian Claude Template
 
-Claude Code で Obsidian Vault を**第二の脳**として運用するためのテンプレート。ブックマークしっぱなしの記事や読書メモを `00_INBOX/` に放り込み、AI に分解・整理・リンク付けさせる。質問すれば vault の蓄積から答える。
+Claude Code で Obsidian Vault を使い、仕事のメモや参考資料を効率的に整理・保管するテンプレート。`00_INBOX/` に素材を放り込み、AI に分解・整理させて `20_NOTES/` に蓄積する。
 
 ## できること
 
 - **クリップ**: Web Clipper で記事を `00_INBOX/` に1クリック保存
 - **取り込み**: `/ingesting-inbox` で記事を複数ノートに分解し `20_NOTES/` に配置。元記事は `90_ARCHIVES/` に退避
-- **調査**: `/researching-wiki <トピック>` で Web検索しながらノート作成
-- **問い合わせ**: 質問すると vault を参照してソース引用付きで回答（`asking-wiki` スキルが auto-invoke）
 - **執筆**: `/writing-articles` で 20_NOTES を素材にしてバズ構造の技術記事を `30_ARTICLES/` に書き下ろし
-- **リンク修繕**: `/relinking-wiki` で 20_NOTES のリンク切れ・張り忘れリンクを定期的に検出して張り直す（孤立ノート・矛盾も副次的に検出）
 
 ## Setup
 
@@ -42,24 +39,20 @@ git push origin main
 ## 日常の運用ループ
 
 ```
-┌─────────────┐   /ingesting-inbox   ┌─────────────┐   質問（asking-wiki）
-│  00_INBOX   │ ────────►  │  20_NOTES   │ ────────────► 回答（ソース引用付き）
-│ (raw素材)   │            │ (知識ノート)│
+┌─────────────┐   /ingesting-inbox   ┌─────────────┐
+│  00_INBOX   │ ────────►  │  20_NOTES   │
+│ (raw素材)   │            │ (メモ)      │
 └─────────────┘            └─────────────┘
-      │ 元ファイル                ▲
-      └────►  90_ARCHIVES          │ /researching-wiki（Web検索から直接追加）
-                                   │ /relinking-wiki（定期メンテ）
+      │ 元ファイル
+      └────►  90_ARCHIVES
 ```
 
 ## コマンド／スキル一覧
 
 | 名前                    | 種類            | 役割                                                                       |
 | ----------------------- | --------------- | -------------------------------------------------------------------------- |
-| `/researching-wiki`     | command + skill | Web検索とClaudeの知識でトピックを調査し、1ノートを作成                     |
 | `/ingesting-inbox`      | command + skill | `00_INBOX/` の素材を分解して `20_NOTES/` に取り込み、元を `90_ARCHIVES/` へ |
 | `/writing-articles`     | command + skill | 技術記事を執筆し `30_ARTICLES/` に保存                                     |
-| `/relinking-wiki`       | command + skill | リンク切れ・張り忘れリンクを検出して張り直す（孤立ノート・矛盾も副次検出） |
-| `asking-wiki`   | skill（auto）   | 質問時に自動発動。`20_NOTES/` を参照してソース引用付きで回答                |
 
 ## Web Clipper の連携
 
