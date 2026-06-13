@@ -4,14 +4,14 @@ Respond in Japanese.
 
 ## Vault structure
 
-| Folder             | Role                                                                                       | Filename convention                               | Link strategy                              |
-| ------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------ |
-| `00_INBOX/`        | Drop zone for source material such as clipped articles and reading notes. Left unorganized | Free (a name that conveys the content)            | Not needed                                 |
-| `10_DAILY/`        | Daily notes                                                                                | `YYYY-MM-DD.md`                                   | Link from learnings/insights to `20_NOTES/` |
-| `20_NOTES/`        | Research/learning notes. Stored flat without subfolders                                    | A name that concisely expresses the topic         | Actively connect notes with `[[wikilink]]` |
-| `30_ARTICLES/`     | Technical articles written with `/writing-articles`. Past articles accumulate too          | A name that concisely expresses the article title | Do not insert links                        |
-| `90_ARCHIVES/`     | Place to move source material already ingested by `/ingesting-inbox`                       | The original filename as is                       | Not needed                                 |
-| `99_ASSETS/`       | Assets such as images                                                                      | —                                                 | —                                          |
+| Folder         | Role                                                                                       | Filename convention                               | Link strategy                               |
+| -------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------- |
+| `00_INBOX/`    | Drop zone for source material such as clipped articles and reading notes. Left unorganized | Free (a name that conveys the content)            | Not needed                                  |
+| `10_DAILY/`    | Daily notes                                                                                | `YYYY-MM-DD.md`                                   | Link from learnings/insights to `20_NOTES/` |
+| `20_NOTES/`    | Research/learning notes. Stored flat without subfolders                                    | A name that concisely expresses the topic         | Actively connect notes with `[[wikilink]]`  |
+| `30_ARTICLES/` | Technical articles written with `/writing-articles`. Past articles accumulate too          | A name that concisely expresses the article title | Do not insert links                         |
+| `90_ARCHIVES/` | Place to move source material already ingested by `/ingesting-inbox`                       | The original filename as is                       | Not needed                                  |
+| `99_ASSETS/`   | Assets such as images                                                                      | —                                                 | —                                           |
 
 ## Note creation rules
 
