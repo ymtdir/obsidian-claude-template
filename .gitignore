@@ -3,6 +3,8 @@
 !00_INBOX/.gitkeep
 90_ARCHIVE/*
 !90_ARCHIVE/.gitkeep
+99_ASSETS/templates/*
+!99_ASSETS/templates/.gitkeep
 
 # Local settings file
 settings.local.json
